@@ -10,5 +10,11 @@ void setup() {
 }
 
 void loop() {
-// write your code here
+    PotiWert = analogRead(AnalogIn0);
+    Serial.print(PotiWert);
+    Ausgabe = map(PotiWert, 0, 1023, 0, 255);
+    Serial.print(", ");
+    Serial.println(Ausgabe);
+    analogWrite(PWM1, Ausgabe);
+    delay(100);
 }
